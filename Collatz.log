@@ -1,3 +1,9 @@
+commit b5b45f9d005cf443551365c592744ecc2301a6da
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 15:40:26 2020 -0500
+
+    Phase 2: Fix given unit tests and aceptance tests, implment collatz_eval()
+
 commit 4b571bd3647b784d8969cd81452a9339db287e65
 Author: gqian75@gmail.com <gqian75@gmail.com>
 Date:   Thu Oct 8 14:18:57 2020 -0500
