@@ -1,3 +1,51 @@
+commit 6211259dde941a472889f5c33cb7b531877d5fff
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Fri Oct 9 00:05:30 2020 -0500
+
+    Phase 3: Updated Makefile
+
+commit 631136617c1b2d4877dafb051b386041cd31d6d3
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 23:11:35 2020 -0500
+
+    Phase 3: 100% coverage
+
+commit 19a941f51a605203e045cfb089c60dc19f40443a
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 22:59:45 2020 -0500
+
+    Coverage at 100%
+
+commit d855bcaedda793156a3e9a03d1fc5446e4fcf0f4
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 22:42:42 2020 -0500
+
+    Phase 3: Optimization
+
+commit e96d5eb5d987575583b20a832ab8d2372d15dea3
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 16:17:10 2020 -0500
+
+    Phase 2: Add additional acceptance tests
+
+commit b5b45f9d005cf443551365c592744ecc2301a6da
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 15:40:26 2020 -0500
+
+    Phase 2: Fix given unit tests and aceptance tests, implment collatz_eval()
+
+commit 4b571bd3647b784d8969cd81452a9339db287e65
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 14:18:57 2020 -0500
+
+    Phase 2: Confirmed expected failures
+
+commit 389e3144fce833d8d6652e09ecf50f8d653efe62
+Author: gqian75@gmail.com <gqian75@gmail.com>
+Date:   Thu Oct 8 13:48:04 2020 -0500
+
+    Phase 1 commit
+
 commit 45a3cbe33c6dfe7a910e989af9ed781ec5abbe33
 Author: Fares Fraij <fares@utexas.edu>
 Date:   Sat Jun 6 10:35:45 2020 -0500

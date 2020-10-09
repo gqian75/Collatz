@@ -8,13 +8,12 @@ FILES :=                              \
     RunCollatz.out                    \
     RunCollatz.py                     \
     TestCollatz.out                   \
-    TestCollatz.py
+    TestCollatz.py										\
+		cs330e-collatz-tests/grantqian-RunCollatz.in   \
+    cs330e-collatz-tests/grantqian-RunCollatz.out  \
+    cs330e-collatz-tests/grantqian-TestCollatz.out \
+    cs330e-collatz-tests/grantqian-TestCollatz.py  \
 
-#    cs330e-collatz-tests/YourGitLabID-RunCollatz.in   \
-#    cs330e-collatz-tests/YourGitLabID-RunCollatz.out  \
-#    cs330e-collatz-tests/YourGitLabID-TestCollatz.out \
-#    cs330e-collatz-tests/YourGitLabID-TestCollatz.py  \
-#
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
@@ -41,7 +40,7 @@ endif
 
 
 collatz-tests:
-	git clone https://gitlab.com/fareszf/cs330e-collatz-tests.git
+	git clone https://gitlab.com/grantqian/cs330e-collatz-tests.git
 
 Collatz.html: Collatz.py
 	$(PYDOC) -w Collatz
