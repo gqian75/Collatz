@@ -6,15 +6,18 @@
 # Glenn P. Downing
 # ---------------------------
 
+# Max cycle length 1-9999, in intervals of 100.
+collatz_cache = [119, 125, 128, 144, 142, 137, 145, 171, 179, 174, 169, 182, 177, 177, 172,
+                 167, 180, 180, 175, 175, 157, 170, 183, 183, 209, 178, 191, 173, 173, 217, 186, 199, 168, 181,
+                 181, 194, 207, 238, 176, 238, 189, 189, 202, 215, 184, 184, 184, 197, 179, 210, 179, 179, 192,
+                 192, 192, 236, 205, 205, 218, 187, 187, 262, 187, 200, 169, 244, 182, 182, 182, 257, 195, 195,
+                 177, 208, 239, 208, 177, 221, 190, 252, 190, 190, 190, 234, 203, 203, 203, 216, 185, 247, 185,
+                 198, 260, 198, 198, 198, 185, 198, 242, 180]
+
 # ------------
 # collatz_read
 # ------------
-collatz_cache = [119,125,128,144,142,137,145,171,179,174,169,182,177,177,172,\
-167,180,180,175,175,157,170,183,183,209,178,191,173,173,217,186,199,168,181,\
-181,194,207,238,176,238,189,189,202,215,184,184,184,197,179,210,179,179,192,\
-192,192,236,205,205,218,187,187,262,187,200,169,244,182,182,182,257,195,195,\
-177,208,239,208,177,221,190,252,190,190,190,234,203,203,203,216,185,247,185,\
-198,260,198,198,198,185,198,242,180]
+
 
 def collatz_read(s):
     """
@@ -33,68 +36,81 @@ def collatz_read(s):
 def collatz_eval(i, j):
     """
     i the beginning of the range, inclusive
-    j the end       of the range, inclusive
+    j the end of the range, inclusive
     return the max cycle length of the range [i, j]
+    uses collatz_eval_cache() when j-i > 99
+    calls collatz_eval_helper() to actually find the result
     """
-    assert i>0
-    assert j>0
-    assert i<1000000
-    assert j<1000000
+    assert i > 0
+    assert j > 0
+    assert i < 1000000
+    assert j < 1000000
     v = 0
-    if i==j:
-        j+=1
-    elif j<i:
+    if i == j:
+        j += 1
+    elif j < i:
         temp = i
         i = j
         j = temp
-    assert i<j
+    assert i < j
     if (j-i > 99):
-        v = collatz_eval_cache(i,j)
-
-
+        v = collatz_eval_cache(i, j)
     else:
-        for n in range(i,j):
+        for n in range(i, j):
             c = collatz_eval_helper(n)
-            if c>v:
+            if c > v:
                 v = c
-    assert v>0
+    assert v > 0
     return v
 
-def collatz_eval_cache(i,j):
-    max = 0
 
+def collatz_eval_cache(i, j):
+    """
+    i the beginning of the range, inclusive
+    j the end of the range, inclusive
+    return the max cycle length of the range [i, j]
+    Uses a cache, to quickly find the solution
+    """
+    max = 0
     a = int((i-2)/100)+1
     b = int(j/100)
-    for n in range(a,b):
+    # find the max cycle length for each interval of 100
+    for n in range(a, b):
         t = collatz_cache[n]
         if t > max:
             max = t
-        #print((n*100)+1,(n+1)*100)
-    if i%100!=1:
+        # print((n*100)+1,(n+1)*100)
+    if i % 100 != 1:
         i2 = (a*100)
     else:
         i2 = i
-    t1 = collatz_eval(i,i2)
-    if t1>max:
+    t1 = collatz_eval(i, i2)
+    # t1 = max cycle length of lower end
+    if t1 > max:
         max = t1
 
-    if j%100!=0:
+    if j % 100 != 0:
         j2 = (b*100)+1
     else:
         j2 = j
-    t2 = collatz_eval(j2,j)
-    if t2>max:
+    t2 = collatz_eval(j2, j)
+    # t2 = max cycle length of upper end
+    if t2 > max:
         max = t2
-
     return max
+    # returns the highest cycle length of all values from cache and computed values
+
 
 def collatz_eval_helper(n):
+    """
+    find cycle length of one number, n
+    """
     assert n > 0
     c = 1
-    while n > 1 :
-        if (n % 2) == 0 :
+    while n > 1:
+        if (n % 2) == 0:
             n = (n // 2)
-        else :
+        else:
             n = (3 * n) + 1
         c += 1
     assert c > 0
@@ -110,7 +126,7 @@ def collatz_print(w, i, j, v):
     print three ints
     w a writer
     i the beginning of the range, inclusive
-    j the end       of the range, inclusive
+    j the end of the range, inclusive
     v the max cycle length
     """
     w.write(str(i) + " " + str(j) + " " + str(v) + "\n")

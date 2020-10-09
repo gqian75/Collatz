@@ -45,7 +45,6 @@ class TestCollatz (TestCase):
         self.assertEqual(i,  10)
         self.assertEqual(j, 1)
 
-
     # ----
     # eval
     # ----
@@ -67,28 +66,32 @@ class TestCollatz (TestCase):
         self.assertEqual(v, 174)
 
     def test_eval_5(self):
-        v = collatz_eval(1,1)
+        v = collatz_eval(1, 1)
         self.assertEqual(v, 1)
 
     def test_eval_6(self):
         v = collatz_eval(10, 1)
         self.assertEqual(v, 20)
 
+    # ----
+    # cache eval
+    # ----
+
     def test_eval_cache_1(self):
-        v = collatz_eval_cache(501,900)
+        v = collatz_eval_cache(501, 900)
         self.assertEqual(v, 179)
 
     def test_eval_cache_2(self):
-        v = collatz_eval_cache(481,612)
-        self.assertEqual(v,142)
+        v = collatz_eval_cache(481, 612)
+        self.assertEqual(v, 142)
 
     def test_eval_cache_3(self):
-        v = collatz_eval_cache(2300,2480)
-        self.assertEqual(v,209)
+        v = collatz_eval_cache(2300, 2480)
+        self.assertEqual(v, 209)
 
     def test_eval_cache_4(self):
-        v = collatz_eval_cache(301,600)
-        self.assertEqual(v,144)
+        v = collatz_eval_cache(301, 600)
+        self.assertEqual(v, 144)
 
     # -----
     # print
@@ -137,6 +140,7 @@ class TestCollatz (TestCase):
 # ----
 # main
 # ----
+
 
 if __name__ == "__main__":
     main()
